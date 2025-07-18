@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body onload="checkAuth(); setupCart();">
+  <header>
+    <h1>Foodie’s Delight 🍕</h1>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+  </header>
+
+  <main class="container">
+    <section class="menu">
+      <h2>Menu</h2>
+      <div class="menu-items">
+        <!-- Products -->
+        <!-- Add this inside <div class="menu-items"> -->
+<div class="item" data-name="Pizza" data-price="10"><img src="https://hips.hearstapps.com/hmg-prod/images/classic-cheese-pizza-recipe-2-64429a0cb408b.jpg?crop=0.6666666666666667xw:1xh;center,top&resize=1200:*" alt=""><h3>Pizza</h3><p>₹180</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Burger" data-price="8"><img src="https://blog.swiggy.com/wp-content/uploads/2025/01/Image-9_-meat-burger-1024x538.png" alt=""><h3>Burger</h3><p>₹150</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Coffee" data-price="3"><img src="https://t4.ftcdn.net/jpg/01/16/61/93/360_F_116619399_YA611bKNOW35ffK0OiyuaOcjAgXgKBui.jpg" alt=""><h3>Coffee</h3><p>₹50</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Fries" data-price="4"><img src="https://static.vecteezy.com/system/resources/thumbnails/027/536/411/small/delicious-french-fries-on-a-white-background-photo.jpg" alt=""><h3>Fries</h3><p>₹90</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Pasta" data-price="9"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtGxJQNLQ_tpfDqgGfFpEARarc7qNGTDVEYg&s" alt=""><h3>Pasta</h3><p>₹100</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Sushi" data-price="12"><img src="https://cdn.britannica.com/52/128652-050-14AD19CA/Maki-zushi.jpg" alt=""><h3>Sushi</h3><p>₹120</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Noodles" data-price="7"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOtHkeg3ozBJdDw_AxSa-F_y7X1UDMc8VjKw&s" alt=""><h3>Noodles</h3><p>₹90</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Tacos" data-price="6"><img src="https://www.onceuponachef.com/images/2023/08/Beef-Tacos.jpg" alt=""><h3>Tacos</h3><p>₹160</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Salad" data-price="5"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL9OQtcrVw008g09nazD3hsedG7PT8cYRlNg&s" alt=""><h3>Salad</h3><p>₹190</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Steak" data-price="15"><img src="https://t3.ftcdn.net/jpg/01/16/36/28/360_F_116362893_5lM48e4YkHmmgIeVCun0L0Esl0lsuN8p.jpg" alt=""><h3>Steak</h3><p>₹250</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Ice Cream" data-price="4"><img src="https://img.freepik.com/free-psd/delicious-raspberry-chocolate-ice-cream-sundae_632498-24987.jpg?semt=ais_hybrid&w=740" alt=""><h3>Ice Cream</h3><p>₹290</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Cake" data-price="5"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqyG7A5aV6jNSg2J08R0wBEKGcCdNXgHHhSw&s" alt=""><h3>Cake</h3><p>₹500</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Sandwich" data-price="6"><img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2024/05/veg-cheese-sandwich-recipe.jpg" alt=""><h3>Sandwich</h3><p>₹199</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Hot Dog" data-price="5"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDAxioIgzLq_DGgMxuVbOUvCxaBkFYxyeYMA&s" alt=""><h3>Hot Dog</h3><p>₹90</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Donut" data-price="3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRrTwBu_e2xoPsIH2FIzmeNiBmJ2VvdSpEPw&s" alt=""><h3>Donut</h3><p>₹199</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Waffles" data-price="6"><img src="https://t4.ftcdn.net/jpg/00/62/27/07/360_F_62270716_ucUJIFkbJIfWeHAK12ig6EPJQqHmiwYT.jpg" alt=""><h3>Waffles</h3><p>₹200</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Milkshake" data-price="4"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvwl77BmbElcyvEjFpv6F8maR0lxgCsH4L8g&s" alt=""><h3>Milkshake</h3><p>₹250</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Soup" data-price="5"><img src="https://media.istockphoto.com/id/1092632852/photo/vegetable-soup.jpg?s=612x612&w=0&k=20&c=TLMWC8lshitbk8pONGpblEsmcsBy1wZVQ9jJC92Cvh4=" alt=""><h3>Soup</h3><p>₹150</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Kebab" data-price="9"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaN3Vr4oso27fl0dvAjDwn3rTgv1QEOA0v3g&s" alt=""><h3>Kebab</h3><p>₹260</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+<div class="item" data-name="Curry" data-price="10"><img src="https://www.shutterstock.com/image-photo/homemade-chicken-curry-pan-wooden-600nw-2476480287.jpg" alt=""><h3>Curry</h3><p>₹150</p><button class="add-to-cart">Add to Cart</button><button class="add-to-wishlist">💖 Add to Wishlist</button></div>
+
+
+      </div>
+    </section>
+
+    <section class="cart">
+      <h2>Cart 🛒</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: ₹<span id="cart-total">0.00</span></p>
+      <button class="place-order-btn" onclick="placeOrder()">🧾 Place Order</button>
+    </section>
+    <div class="wishlist">
+    
+    <ul id="wishlist-items"></ul>
+  </div>
+  </main>
+<script src="auth.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

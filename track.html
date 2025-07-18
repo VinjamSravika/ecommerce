@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Track Your Order - Foodie's Corner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📦 Track Your Order</h1>
+  </header>
+
+  <main class="container">
+    <section class="order-status">
+      <h2>Order Details</h2>
+      <p><strong>Order ID:</strong> <span id="order-id"></span></p>
+      <p><strong>Name:</strong> <span id="customer-name"></span></p>
+      <p><strong>Phone:</strong> <span id="customer-phone"></span></p>
+      <p><strong>Address:</strong> <span id="customer-address"></span></p>
+      <p><strong>Status:</strong> <span id="order-status"></span></p>
+      <button id="next-status-btn">➡️ Next Status</button>
+    </section>
+  </main>
+
+  <script>
+    const order = JSON.parse(localStorage.getItem("latestOrder"));
+
+    if (!order) {
+      alert("No order found!");
+      window.location.href = "index.html";
+    }
+
+    const orderIdSpan = document.getElementById("order-id");
+    const nameSpan = document.getElementById("customer-name");
+    const phoneSpan = document.getElementById("customer-phone");
+    const addressSpan = document.getElementById("customer-address");
+    const statusSpan = document.getElementById("order-status");
+    const nextBtn = document.getElementById("next-status-btn");
+
+    const statusFlow = ["Preparing", "Out for Delivery", "Delivered"];
+    let currentStatusIndex = statusFlow.indexOf(order.status);
+
+    function updateDisplay() {
+      orderIdSpan.textContent = order.orderId;
+      nameSpan.textContent = order.name;
+      phoneSpan.textContent = order.phone;
+      addressSpan.textContent = order.address;
+      statusSpan.textContent = order.status;
+
+      nextBtn.disabled = order.status === "Delivered";
+      nextBtn.textContent = order.status === "Delivered" ? "✅ Delivered" : "➡️ Next Status";
+    }
+
+    nextBtn.addEventListener("click", () => {
+      if (currentStatusIndex < statusFlow.length - 1) {
+        currentStatusIndex++;
+        order.status = statusFlow[currentStatusIndex];
+        localStorage.setItem("latestOrder", JSON.stringify(order));
+        updateDisplay();
+      }
+    });
+
+    updateDisplay();
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Place Your Order - Foodie's Corner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🧾 Complete Your Order</h1>
+  </header>
+
+  <main class="container">
+    <section class="order-summary">
+      <h2>🛒 Order Summary</h2>
+      <ul id="summary-items"></ul>
+      <p><strong>Total:</strong> ₹<span id="summary-total">0.00</span></p>
+    </section>
+
+    <section class="order-form">
+      <h2>📋 Delivery Details</h2>
+      <form id="order-form">
+        <input type="text" id="customer-name" placeholder="Your Name" required />
+        <input type="tel" id="customer-phone" placeholder="Phone Number" required />
+        <textarea id="customer-address" placeholder="Delivery Address" required></textarea>
+        <button type="submit">🚚 Confirm Order</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    // Load cart
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const total = localStorage.getItem("orderTotal") || "0.00";
+
+    const summaryList = document.getElementById("summary-items");
+    const summaryTotal = document.getElementById("summary-total");
+
+    cart.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = `${item.quantity}x ${item.name} - ₹${(item.quantity * item.price).toFixed(2)}`;
+      summaryList.appendChild(li);
+    });
+
+    summaryTotal.textContent = total;
+
+    // Handle form submission
+    const form = document.getElementById("order-form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("customer-name").value.trim();
+      const phone = document.getElementById("customer-phone").value.trim();
+      const address = document.getElementById("customer-address").value.trim();
+
+      if (!name || !phone || !address) {
+        alert("Please fill in all details.");
+        return;
+      }
+
+      const orderId = "FD" + Math.floor(Math.random() * 1000000);
+
+      const orderDetails = {
+        name,
+        phone,
+        address,
+        cart,
+        total,
+        orderId,
+        status: "Preparing"
+      };
+
+      localStorage.setItem("latestOrder", JSON.stringify(orderDetails));
+
+      alert(`Order placed successfully!\nYour Order ID: ${orderId}`);
+
+      window.location.href = "track.html";
+    });
+  </script>
+</body>
+</html>
